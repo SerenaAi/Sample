@@ -35,8 +35,8 @@ The following code samples describe parts of the codebase that are currently bei
 The following code snippet is part of the server-side Javascript code that handles user login requests. The server side middle-ware Express.js will route a request to a callback function. In this case, it takes the 'POST' request from 	`/users/login` and routes it to the `login` function:
 
 ```javascript
-    // Route to the login function in user module
-    expressHandler.post('/users/login', user.login);
+// Route to the login function in user module
+expressHandler.post('/users/login', user.login);
 ```
 
 For the snippet below, `req` and `res` are the request and response objects, `req` contains information about the HTTP request. `res` is responsible for sending back an HTTP response.
@@ -44,7 +44,7 @@ For the snippet below, `req` and `res` are the request and response objects, `re
 ```javascript
     ...
 
-  exports.login = (req, res) => {
+exports.login = (req, res) => {
     // Set response headers
     // Make sure to allow Cross-origin resource sharing (CORS)
     res.setHeader("Access-Control-Allow-Origin", "*");
@@ -77,7 +77,7 @@ For the snippet below, `req` and `res` are the request and response objects, `re
         // Catches any errors returned from 'checkIdAndPassword' and output an error message
         res.send(JSON.stringify(new Response(false, "Database error")));
     });
-  };
+};
 
     ...
 ```
@@ -89,13 +89,13 @@ What does the `header` view contains?
 
 ```html
     ...
-  <input class="form-control mr-sm-2" ng-model="login.userId" placeholder="AccountID" type="text">
+<input class="form-control mr-sm-2" ng-model="login.userId" placeholder="AccountID" type="text">
     <input class="form-control mr-sm-2" ng-model="login.password" placeholder="Password" type="password">
       <button class="btn btn-outline-success my-2 my-sm-0" ng-click="signin()">
         Sign In
       </button>
     </input>
-  </input>
+</input>
     ...   
 ```
 
@@ -104,13 +104,13 @@ The `ng-model` is the AngularJS syntax that binds what's in `<Input>` to the `$s
 Here is the controller side:
 
 ```javascript
-  app.controller('HeaderController', function($scope, $location, HttpService, UtilService, $timeout, $cookies) {
+app.controller('HeaderController', function($scope, $location, HttpService, UtilService, $timeout, $cookies) {
 		...
         
    	$scope.login = {
-    	  userId: undefined,
-	  password: undefined
-	  };
+        userId: undefined,
+	    password: undefined
+	};
 
     $scope.signin = function() {
     // Send post http request to server, with login information as payload
@@ -133,6 +133,35 @@ Here is the controller side:
         });
     }
       
+    ...   
+```
+
+##### Example 3    
+Data in AngularJS service can be shared by all AngularJS controllers. In this case, I put a
+`isLogin` boolean into the service called `UtilService` to indicate whether user is logged in or not. So that controllers can make UI changes base on this value. `isLogin` gets its value by watching if cookie exist. 
+
+
+```javascript
+app.service('UtilService', function($timeout, $rootScope, $cookies) {
+    //This property indicates if user is currently logged in
+    service.isLogin = false;
+
+    ...
+
+    //Watch for any changes in $cookies.get('client_cookie'),
+    //if $cookies.get('client_cookie') is null, there is no session
+    //or the current session is destroyed, which indicates a logout from the system.
+    //Watch changes in this value and change isLogin state accordingly
+    $rootScope.$watch(function() {
+        return $cookies.get('client_cookie');
+    }, function() {
+        if ($cookies.get('client_cookie')) {
+            service.isLogin = true;
+        } else {
+            service.isLogin = false;
+        }
+    });
+
     ...   
 ```
 

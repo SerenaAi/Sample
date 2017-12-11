@@ -36,7 +36,7 @@ app.service('UtilService', function($timeout, $rootScope, $cookies) {
     };
     //Watch for any changes in $cookies.get('client_cookie'),
     //if $cookies.get('client_cookie') is null, there is no session
-    //or the current session is destroyed, which indicates a logout of the system.
+    //or the current session is destroyed, which indicates a logout from the system.
     //Watch changes in this value and change isLogin flag accordingly
     $rootScope.$watch(function() {
         return $cookies.get('client_cookie');
