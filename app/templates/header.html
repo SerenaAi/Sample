@@ -27,6 +27,9 @@
                 </input>
             </form>
             <div ng-if="getIsLogin()">
+                <span class="nav-item" style="color:#7f7f7f; margin-right: 10px;">
+                    Hello, {{getCurrentUserId()}}
+                </span>
                 <button class="btn btn-outline-success my-2 my-sm-0" ng-click="signout()">
                     Sign out
                 </button>

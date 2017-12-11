@@ -64,8 +64,8 @@
     </div>
     <div class="sample-collection sample-padding-top">
         <div class="row" ng-if="hasPictures">
-            <div class="col-sm-12 col-md-6 col-lg-4" ng-repeat="item in pictures" style="padding:4px;">
-                <div class="sample-card">
+            <div class="col-sm-12 col-md-6 col-lg-4" ng-repeat="item in pictures" style="padding:10px;">
+                <div class="sample-card" data-target="#sampleModal" data-toggle="modal" ng-click="setCurrentImageUrl(item.p_url)">
                     <div class="sample-card-img" ng-mouseenter="hasCover=true" ng-mouseleave="hasCover=false" ng-style="{'background-image': 'url('+item.p_url+')'}">
                         <div class="sample-card-img-cover" ng-show="hasCover==true">
                             <div class="row">
@@ -98,3 +98,12 @@
         </div>
     </div>
 </section>
+<div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade" id="sampleModal" role="dialog" tabindex="-1">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <img alt="User Pictures" height="auto" ng-src="{{currentImageUrl}}" width="100%"/>
+            </div>
+        </div>
+    </div>
+</div>

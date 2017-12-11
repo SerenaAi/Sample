@@ -103,9 +103,9 @@ Here is the controller:
 		...
         
    	$scope.login = {
-    	  userId: undefined,
-	  password: undefined
-	  };
+    	userId: undefined,
+	    password: undefined
+	};
 
     $scope.signin = function() {
     //Send post http request to server, with login information as payload
