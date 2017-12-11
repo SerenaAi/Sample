@@ -1,0 +1,105 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "angular-cookies",
+        "scope": null,
+        "escapedName": "angular-cookies",
+        "name": "angular-cookies",
+        "rawSpec": "",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "/Users/eva/Downloads/sample"
+    ]
+  ],
+  "_from": "angular-cookies@latest",
+  "_id": "angular-cookies@1.6.7",
+  "_inCache": true,
+  "_location": "/angular-cookies",
+  "_nodeVersion": "6.12.0",
+  "_npmOperationalInternal": {
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/angular-cookies-1.6.7.tgz_1511547672763_0.2819050170946866"
+  },
+  "_npmUser": {
+    "name": "angularcore",
+    "email": "angular-core+npm@google.com"
+  },
+  "_npmVersion": "3.10.10",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "angular-cookies",
+    "scope": null,
+    "escapedName": "angular-cookies",
+    "name": "angular-cookies",
+    "rawSpec": "",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/angular-cookies/-/angular-cookies-1.6.7.tgz",
+  "_shasum": "841b8c1ba6d101d886f1676bda4dc1ad9095ad4c",
+  "_shrinkwrap": null,
+  "_spec": "angular-cookies",
+  "_where": "/Users/eva/Downloads/sample",
+  "author": {
+    "name": "Angular Core Team",
+    "email": "angular-core+npm@google.com"
+  },
+  "bugs": {
+    "url": "https://github.com/angular/angular.js/issues"
+  },
+  "dependencies": {},
+  "description": "AngularJS module for cookies",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "shasum": "841b8c1ba6d101d886f1676bda4dc1ad9095ad4c",
+    "tarball": "https://registry.npmjs.org/angular-cookies/-/angular-cookies-1.6.7.tgz"
+  },
+  "gitHead": "68c8fa837e01108735c2ac53a54654528cbd9237",
+  "homepage": "http://angularjs.org",
+  "jspm": {
+    "shim": {
+      "angular-cookies": {
+        "deps": [
+          "angular"
+        ]
+      }
+    }
+  },
+  "keywords": [
+    "angular",
+    "framework",
+    "browser",
+    "cookies",
+    "client-side"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "maintainers": [
+    {
+      "name": "angularcore",
+      "email": "angular-core+npm@google.com"
+    },
+    {
+      "name": "petebd",
+      "email": "pete@bacondarwin.com"
+    }
+  ],
+  "name": "angular-cookies",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/angular/angular.js.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.6.7"
+}

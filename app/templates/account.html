@@ -1,0 +1,84 @@
+<div class="sample-nav-space">
+</div>
+<section class="sample-showbox">
+    <div class="row">
+        <div class="col-sm-5">
+            <div class="card sample-left-card">
+                <div class="container text-center">
+                    <img alt="Your photo" class="rounded-circle" height="150px" ng-if="user.photo" ng-src="{{user.photo}}" width="150px"/>
+                    <img alt="Your photo" class="rounded-circle" height="150px" ng-if="!user.photo" src="assets/defaultImage2.png" width="150px"/>
+                    <br/>
+                    <button accept="image/*" class="btn btn-link" ngf-select="uploadPhoto($file, $invalidFile)">
+                        <span>
+                            <i class="fa fa-camera">
+                            </i>
+                        </span>
+                    </button>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title text-center" ng-if="user.username">
+                        Hello, {{user.username}}!
+                    </h5>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-7">
+            <h3 class="sample-font">
+                Upload
+            </h3>
+            <hr/>
+            <form>
+                <div class="form-group">
+                    <label>
+                        Picture Name
+                    </label>
+                    <br/>
+                    <input class="form-control" ng-model="picture.name" type="text">
+                    </input>
+                </div>
+                <div class="form-group">
+                    <label>
+                        Picture Description
+                    </label>
+                    <br/>
+                    <textarea class="form-control" ng-model="picture.desc" rows="2">
+                    </textarea>
+                </div>
+            </form>
+            <div ngf-no-file-drop="">
+                <div class="alert alert-danger" role="alert">
+                    File Drag/Drop is not supported for this browser
+                </div>
+            </div>
+            <div ng-if="isPictureError">
+                <div class="alert alert-danger" role="alert">
+                    {{pictureErrorMessage}}
+                </div>
+            </div>
+            <div accept="image/*" class="sample-dropbox" ng-model="picture.file" ngf-allow-dir="false" ngf-drag-over-class="'sample-dragover'" ngf-drop="" ngf-multiple="false" ngf-pattern="'image/*'" ngf-select="">
+                <div class="sample-nodrop" ng-if="!isReadyToUploadPicture">
+                    Drop images here or click to upload
+                </div>
+                <div class="sample-drop" ng-if="isReadyToUploadPicture">
+                    File name: {{picture.file.name}}
+                    <br/>
+                    File length: {{picture.file.size}}
+                </div>
+            </div>
+            <div class="row" ng-if="isReadyToUploadPicture">
+                <div class="col">
+                    <button class="btn btn-primary btn-lg" ng-click="uploadPicture()" style="float: right" type="button">
+                        <span ng-if="spinnerStatus">
+                            <i class="fa fa-circle-o-notch spinning">
+                            </i>
+                            Uploading...
+                        </span>
+                        <span ng-if="!spinnerStatus">
+                            Upload
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

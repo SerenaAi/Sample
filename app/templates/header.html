@@ -1,0 +1,36 @@
+<div class="container" ng-controller="HeaderController">
+    <nav class="sample-navbar navbar navbar-expand-md navbar-light fixed-top bg-light">
+        <button aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right" data-target="#navbarsExampleDefault" data-toggle="collapse" type="button">
+            <span class="navbar-toggler-icon">
+            </span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#/home">
+                        Home
+                    </a>
+                </li>
+                <li class="nav-item" ng-if="getIsLogin()">
+                    <a class="nav-link" href="#/account">
+                        Upload pictures
+                    </a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0" ng-if="!getIsLogin()">
+                <input class="form-control mr-sm-2" ng-model="login.userId" placeholder="AccountID" type="text">
+                    <input class="form-control mr-sm-2" ng-model="login.password" placeholder="Password" type="password">
+                        <button class="btn btn-outline-success my-2 my-sm-0" ng-click="signin()">
+                            Sign In
+                        </button>
+                    </input>
+                </input>
+            </form>
+            <div ng-if="getIsLogin()">
+                <button class="btn btn-outline-success my-2 my-sm-0" ng-click="signout()">
+                    Sign out
+                </button>
+            </div>
+        </div>
+    </nav>
+</div>

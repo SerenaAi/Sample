@@ -1,0 +1,69 @@
+<div class="sample-nav-space">
+</div>
+<section class="sample-padding-top">
+    <div class="container">
+        <form name="sampleForm" ng-submit="submit()" novalidate="">
+            <div class="form-group" ng-class="{'sample-form-has-error': (sampleForm.userId.$invalid && sampleForm.userId.$dirty) || !isIdAvailable}">
+                <label>
+                    Account ID
+                </label>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <input class="form-control" name="userId" ng-change="checkUserId()" ng-maxlength="40" ng-minlength="3" ng-model="users.userId" required="" type="text">
+                        </input>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="alert alert-danger" ng-show="sampleForm.userId.$error.required && sampleForm.userId.$dirty" role="alert">
+                            Account ID is required.
+                        </div>
+                        <div class="alert alert-danger" ng-show="sampleForm.userId.$error.minlength || sampleForm.userId.$error.maxlength" role="alert">
+                            Account ID should be between 3 and 40 characters
+                        </div>
+                        <div class="alert alert-danger" ng-show="!isIdAvailable" role="alert">
+                            This ID is taken, please choose another one.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br/>
+            <div class="form-group" ng-class="{'sample-form-has-error': sampleForm.password.$invalid && sampleForm.password.$dirty}">
+                <label>
+                    Password
+                </label>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <input class="form-control" name="password" ng-maxlength="40" ng-minlength="3" ng-model="users.password" required="" type="password"/>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="alert alert-danger" ng-show="sampleForm.password.$error.required && sampleForm.password.$dirty" role="alert">
+                            Password is required.
+                        </div>
+                        <div class="alert alert-danger" ng-show="sampleForm.password.$error.minlength || sampleForm.password.$error.maxlength" role="alert">
+                            Password should be between 3 and 40 characters
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br/>
+            <div class="form-group" ng-class="{'sample-form-has-error': sampleForm.username.$invalid && sampleForm.username.$dirty}">
+                <label>
+                    Username
+                </label>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <input class="form-control" name="username" ng-model="users.username" required="" type="text"/>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="alert alert-danger" ng-show="sampleForm.username.$error.required && sampleForm.username.$dirty" role="alert">
+                            Username is required.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br/>
+            <button class="btn btn-lg btn-primary btn-block" ng-disabled="sampleForm.$invalid" type="submit">
+                Submit
+            </button>
+        </form>
+    </div>
+</section>

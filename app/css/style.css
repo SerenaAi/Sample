@@ -1,0 +1,144 @@
+.sample-nav-space {
+    padding-top: 80px;
+}
+
+.sample-navbar.bg-light {
+    background-color: rgba(255, 255, 255, 0.8)!important;
+}
+
+.sample-alert {
+    z-index: 10000;
+    position: fixed;
+    left: 20px;
+    right: 20px;
+}
+
+.sample-form-has-error .form-control:focus {
+    border-color: #a94442;
+    --box-shadow-color: goldenrod;
+    border-radius: .25rem;
+    -webkit-box-shadow: inset 0 1px 1px #e6bfbf;
+    box-shadow: inset 0 0 0 0.2rem #e6bfbf;
+}
+
+.sample-form-has-error .form-control {
+    border-color: #a94442;
+    border-radius: .25rem;
+    -webkit-box-shadow: inset 0 0 0 0.2rem #e6bfbf;
+    box-shadow: inset 0 0 0 0.2rem #e6bfbf;
+}
+
+.sample-background-color {
+    background: antiquewhite;
+}
+
+.sample-padding-top {
+    padding-top: 30px;
+}
+
+.sample-padding-top-more {
+    padding-top: 50px;
+}
+
+.sample-padding-bottom {
+    padding-bottom: 30px;
+}
+
+.sample-padding-bottom-more {
+    padding-bottom: 50px;
+}
+
+.sample-inline {
+    display: block;
+    float: left;
+}
+
+.sample-showbox {
+    padding: 10px 20px;
+}
+
+.sample-dropbox {
+    background: #F8F8F8;
+    border: 5px dashed #DDD;
+    width: 100%;
+    height: auto;
+    min-height: 180px;
+    padding: 20px;
+    color: #DDD;
+    margin: 10px 0;
+}
+
+.sample-nodrop {
+    text-align: center;
+    font-size: 40px;
+}
+
+.sample-drop {
+    text-align: left;
+    display: flex;
+    font-size: 20px;
+}
+
+.sample-rightborder {
+    border-right: solid 2px #DDD;
+    margin: 10px;
+}
+
+.sample-dragover {
+    border: 5px dashed #a5a5a5;
+}
+
+.sample-left-card {
+    border: none;
+}
+
+.sample-card {
+    position: relative;
+}
+
+.sample-card-img-cover {
+    top: 0px;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    color: black;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.sample-card-img {
+    box-shadow: 0px 0px 5px 0px grey;
+    width: 100%;
+    height: 400px;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.fa.spinning {
+    animation: spin 1s infinite linear;
+    -webkit-animation: spin2 1s infinite linear;
+}
+
+.rounded-circle {
+    border: solid 1px #ced4da;
+}
+
+@keyframes spin {
+    from {
+        transform: scale(1) rotate(0deg);
+    }
+    to {
+        transform: scale(1) rotate(360deg);
+    }
+}
+
+@-webkit-keyframes spin2 {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+    }
+}

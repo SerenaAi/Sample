@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:ng="http://angularjs.org">
+    <head>
+        <meta charset="utf-8">
+            <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+                <title>
+                    Sample
+                </title>
+                <link href="lib/angular/angular-csp.css" rel="stylesheet" type="text/css"/>
+                <link href="lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+                <link href="lib/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css"/>
+                <link href="css/style.css" rel="stylesheet" type="text/css"/>
+            </meta>
+        </meta>
+        <!-- libs -->
+        <script src="lib/angular/angular.min.js">
+        </script>
+        <script src="app.js">
+        </script>
+        <!-- controllers -->
+        <script src="./js/controller/homeCtrl.js">
+        </script>
+        <script src="./js/controller/headerCtrl.js">
+        </script>
+        <script src="./js/controller/signUpCtrl.js">
+        </script>
+        <script src="./js/controller/accountCtrl.js">
+        </script>
+        <!-- services -->
+        <script src="./js/service/httpServ.js">
+        </script>
+        <script src="./js/service/utilServ.js">
+        </script>
+        <!-- libs -->
+        <script src="lib/angular-route/angular-route.min.js">
+        </script>
+        <script src="lib/angular-resource/angular-resource.min.js">
+        </script>
+        <script src="lib/angular-file-upload/dist/angular-file-upload.min.js">
+        </script>
+        <script src="lib/angular-sessionstorage/angular-sessionstorage.js">
+        </script>
+        <script src="lib/angular-cookies/angular-cookies.min.js">
+        </script>
+        <script src="lib/ng-file-upload/dist/ng-file-upload-shim.js">
+        </script>
+        <script src="lib/ng-file-upload/dist/ng-file-upload.min.js">
+        </script>
+        <script src="lib/jquery/dist/jquery.slim.min.js">
+        </script>
+        <script src="lib/popper/popper.min.js">
+        </script>
+        <script src="lib/bootstrap/dist/js/bootstrap.min.js">
+        </script>
+    </head>
+    <body ng-app="sample">
+        <div ng-controller="AppController">
+            <div ng-if="getIsError()">
+                <div class="sample-alert alert alert-danger" role="alert">
+                    <button aria-label="Close" class="close" ng-click="closeErrorBox()" type="button">
+                        <span aria-hidden="true">
+                            ×
+                        </span>
+                    </button>
+                    <strong>
+                        Oh snap!
+                    </strong>
+                    {{getErrorMessage()}}
+                </div>
+            </div>
+            <div ng-if="getIsSuccess()">
+                <div class="sample-alert alert alert-success" id="success-alert" role="alert">
+                    <button aria-label="Close" class="close" ng-click="closeSuccessBox()" type="button">
+                        <span aria-hidden="true">
+                            ×
+                        </span>
+                    </button>
+                    <strong>
+                        Well done!
+                    </strong>
+                    {{getSuccessMessage()}}
+                </div>
+            </div>
+            <div ng-include="'templates/header.html'">
+            </div>
+            <ng-view>
+            </ng-view>
+            <div ng-include="'templates/footer.html'">
+            </div>
+        </div>
+    </body>
+</html>

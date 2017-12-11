@@ -1,0 +1,11 @@
+# Specifies intentionally untracked files to ignore when using Git
+
+# OS generated files #
+######################
+.DS_Store
+
+# Folders #
+######################
+node_modules/
+
+

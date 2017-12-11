@@ -1,0 +1,100 @@
+<section class="sample-nav-space">
+    <div class="container">
+        <div class="sample-padding-top sample-padding-bottom text-center">
+            <h1 class="display-3">
+                Gallery
+            </h1>
+            <p>
+                The best place to explore and share beautiful digital paintings!
+            </p>
+            <button class="btn btn-outline-primary btn-lg" ng-click="signup()" ng-if="!getIsLogin()" type="button">
+                <span>
+                    <i class="fa fa-user-plus">
+                    </i>
+                    Sign Up Now
+                </span>
+            </button>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="carousel slide" data-ride="carousel" id="carouselExampleIndicators">
+        <ol class="carousel-indicators">
+            <li class="active" data-slide-to="0" data-target="#carouselExampleIndicators">
+            </li>
+            <li data-slide-to="1" data-target="#carouselExampleIndicators">
+            </li>
+            <li data-slide-to="2" data-target="#carouselExampleIndicators">
+            </li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img alt="Gallery Picture1" class="d-block w-100" data-holder-rendered="true" src="/assets/gallery/g1.jpg"/>
+                <div class="carousel-caption d-none d-md-block">
+                    <h3>
+                        Explore popular paintings
+                    </h3>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img alt="Gallery Picture2" class="d-block w-100" data-holder-rendered="true" src="/assets/gallery/g2.jpg"/>
+                <div class="carousel-caption d-none d-md-block">
+                    <h3>
+                        Share your paintings
+                    </h3>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img alt="Gallery Picture3" class="d-block w-100" data-holder-rendered="true" src="/assets/gallery/g3.jpg"/>
+                <div class="carousel-caption d-none d-md-block">
+                    <h3>
+                        Join our community, stay connected
+                    </h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="sample-showbox">
+    <div class="sample-padding-top-more">
+        <h3 class="sample-font">
+            Collection
+        </h3>
+        <hr/>
+    </div>
+    <div class="sample-collection sample-padding-top">
+        <div class="row" ng-if="hasPictures">
+            <div class="col-sm-12 col-md-6 col-lg-4" ng-repeat="item in pictures" style="padding:4px;">
+                <div class="sample-card">
+                    <div class="sample-card-img" ng-mouseenter="hasCover=true" ng-mouseleave="hasCover=false" ng-style="{'background-image': 'url('+item.p_url+')'}">
+                        <div class="sample-card-img-cover" ng-show="hasCover==true">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <img alt="Photo" class="rounded-circle" height="80px" ng-if="item.u_photo" ng-src="{{item.u_photo}}" width="80px"/>
+                                </div>
+                                <div class="col-sm-9">
+                                    <h5 class="text-center" ng-if="item.p_name">
+                                        {{item.p_name}}
+                                        <br/>
+                                    </h5>
+                                    <p>
+                                        Created by: {{item.u_name}}
+                                        <br/>
+                                        {{item.p_description}}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" ng-if="!hasPictures">
+            <div class="col text-center">
+                <div class="alert alert-warning" role="alert">
+                    There is no painting yet, upload yours!
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
