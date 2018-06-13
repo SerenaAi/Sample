@@ -28,6 +28,13 @@ Software testing is a key component of this project, therefore, I have included 
 
 Faily easy right? Just make sure to first navigate to the project's directory and don't forget to start the server prior to run the test suite.
 
+### Design Documents
+Most of the 
+
+##### Logical Data Model
+![alt text](/logical_data_model.png)
+
+
 ### Code Examples
 The following code samples describe parts of the codebase that are currently being used in order to handle certain functionality within the app.
 
