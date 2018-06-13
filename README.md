@@ -54,7 +54,7 @@ CREATE TABLE User (
 );
 ```
 
-### Code Examples
+<!--### Code Examples
 The following code samples describe parts of the codebase that are currently being used in order to handle certain functionality within the app.
 
 ##### Example 1
@@ -190,6 +190,6 @@ app.service('UtilService', function($timeout, $rootScope, $cookies) {
 
     ...   
 ```
-
+-->
 ### From the developer
 Thank you for taking time to read this! Please feel free to contact me if you run into any problems. :blush:
