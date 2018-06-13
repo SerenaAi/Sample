@@ -29,17 +29,36 @@ Software testing is a key component of this project, therefore, I have included 
 Faily easy right? Just make sure to first navigate to the project's directory and don't forget to start the server prior to run the test suite.
 
 ### Design Documents
-Most of the 
+##### Database design
+Use logical data modeling techniques to design database tables:
 
-##### Logical Data Model
 ![alt text](/logical_data_model.png)
 
+Create database tables using sql:
+```sql
+CREATE TABLE Picture (
+    p_id  INTEGER PRIMARY KEY AUTOINCREMENT,
+    u_id  TEXT NOT NULL,
+    name  TEXT,
+    description   TEXT,
+    url   TEXT NOT NULL,
+    FOREIGN KEY (u_id) REFERENCES User (u_id)
+);
+
+CREATE TABLE User (
+    u_id  TEXT PRIMARY KEY,
+    name  TEXT,
+    photo BLOB,
+    description   TEXT,
+    password  TEXT NOT NULL
+);
+```
 
 ### Code Examples
 The following code samples describe parts of the codebase that are currently being used in order to handle certain functionality within the app.
 
 ##### Example 1
-The following code snippet is part of the server-side Javascript code that handles user login requests. The server side middle-ware Express.js will route a request to a callback function. In this case, it takes the 'POST' request from 	`/users/login` and routes it to the `login` function:
+The following code snippet is part of the server-side Javascript code that handles user login requests. The server side middle-ware Express.js will route a request to a callback function. In this case, it takes the 'POST' request from  `/users/login` and routes it to the `login` function:
 
 ```javascript
 // Route to the login function in user module
@@ -73,7 +92,7 @@ exports.login = (req, res) => {
     checkIdAndPassword(req.body.userId, req.body.password).then(ret => {
         // If ret is true, there is a match, otherwise send back a Response object with the error state and error message
         if (ret) {
-            // Create and save a session		
+            // Create and save a session        
             req.session.uid = req.body.userId;
             req.session.save();
             res.send(JSON.stringify(new Response(true, "Login success")));
@@ -112,19 +131,19 @@ Here is the controller side:
 
 ```javascript
 app.controller('HeaderController', function($scope, $location, HttpService, UtilService, $timeout, $cookies) {
-		...
+        ...
         
-   	$scope.login = {
+    $scope.login = {
         userId: undefined,
-	    password: undefined
-	};
+        password: undefined
+    };
 
     $scope.signin = function() {
     // Send post http request to server, with login information as payload
         HttpService.post('/users/login', $scope.login).then(function(res) {
             if (res.success) {
-    		  	// When login success, get the userId and save it in 'client_cookie', 
-    		  	// so that the value is shared between views on the client-side
+                // When login success, get the userId and save it in 'client_cookie', 
+                // so that the value is shared between views on the client-side
                 $cookies.put('client_cookie', $scope.login.userId);
                 // Angular route to home view
                 $location.path('/');
