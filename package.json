@@ -13,7 +13,7 @@
     "angular-file-upload": "^2.5.0",
     "angular-promise-buttons": "^0.1.21",
     "angular-sessionstorage": "^1.1.5",
-    "bcrypt": "^1.0.3",
+    "bcrypt": "^5.0.0",
     "body-parser": "^1.18.2",
     "cookie-encrypter": "^0.2.3",
     "cookie-parser": "^1.4.3",
